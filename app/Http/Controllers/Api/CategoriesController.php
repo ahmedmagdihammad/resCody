@@ -38,7 +38,7 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        $input['parent_id'] = empty($input['parent_id']) ? 0 : $input['parent_id'];
+        $input['parent_id'] = empty($input['parent_id']) ? NULL : $input['parent_id'];
         
         $category = Category::create($input);
         return response()->json([$category, $category->parent]);
